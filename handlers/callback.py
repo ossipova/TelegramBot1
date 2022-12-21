@@ -6,10 +6,10 @@ from config import Dispatcher
 
 
 # QUESTION 2
-@dp.callback_query_handler(text='button_call_1')
+# @dp.callback_query_handler(text='button_call_1')
 async def quiz_2(call: types.CallbackQuery):
     markup = InlineKeyboardMarkup()
-    button_call_2 = InlineKeyboardButton ('NEXT', callback_data='button_call_2')
+    button_call_2 = InlineKeyboardButton('NEXT', callback_data='button_call_2')
     markup.add(button_call_2)
     question = "What's the name of framework for creating Telegram Bot?"
     answer = [
@@ -30,8 +30,11 @@ async def quiz_2(call: types.CallbackQuery):
         reply_markup=markup
     )
 
-    # QUESTION 3
-@dp.callback_query_handler(text='button_call_2')
+
+
+
+   # QUESTION 3
+# @dp.callback_query_handler(text='button_call_2')
 async def quiz_3(call: types.CallbackQuery):
     question = "What command outputs all moduls and packages of your project to a text file?"
     answer = [

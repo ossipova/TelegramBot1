@@ -3,13 +3,13 @@ from aiogram import types, Dispatcher
 from config import bot, dp
 
 
-@dp.message_handler(commands=['start'])
+#@dp.message_handler(commands=['start'])
 async def start_handler(message: types.Message):
     await bot.send_message(chat_id=message.from_user.id, text=f'Hi! {message.from_user.first_name}')
 
 
 # QUESTION 1
-@dp.message_handler(commands=['quiz'])
+#@dp.message_handler(commands=['quiz'])
 async def quiz_1(message: types.Message):
     markup = InlineKeyboardMarkup()
     button_call_1 = InlineKeyboardButton('NEXT', callback_data='button_call_1')
@@ -34,13 +34,13 @@ async def quiz_1(message: types.Message):
     )
 
 
-@dp.message_handler(commands=['mem'])
+#@dp.message_handler(commands=['mem'])
 async def mem_handler(message: types.Message):
     photo = open('media/IMG_4316.JPG', 'rb')
     await bot.send_photo(chat_id=message.from_user.id, photo=photo)
 
 
-@dp.message_handler(commands=['pin'])
+#@dp.message_handler(commands=['pin'])
 async def pin_message(message: types.Message):
     if message.reply_to_message:
         await bot.pin_chat_message(message.chat.id, message.reply_to_message.message_id)
