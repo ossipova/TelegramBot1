@@ -11,11 +11,11 @@ async def get_chat_id(message: types.Message):
 
 
 async def time_to_pay():
-    await bot.send_message(chat_id=chat.id, text="It's time to pay your bills!")
+    await bot.send_message(chat_id=chat_id, text="It's time to pay your bills!")
 
 
 async def scheduler():
-    aioschedule.every().day.at('11:50').do(time_to_pay)
+    aioschedule.every(28).day.at('10:00').do(time_to_pay)
 
     while True:
         await aioschedule.run_pending()
