@@ -14,8 +14,14 @@ async def time_to_pay():
     await bot.send_message(chat_id=chat_id, text="It's time to pay your bills!")
 
 
+async def renew_membership():
+    await bot.send_message(chat_id=chat_id, text="It's time to renew your membership!")
+
+
 async def scheduler():
-    aioschedule.every(28).day.at('10:00').do(time_to_pay)
+    aioschedule.every().monday.at('10:00').do(time_to_pay)
+    aioschedule.every().saturday.at('13:00').do(renew_membership)
+
 
     while True:
         await aioschedule.run_pending()
