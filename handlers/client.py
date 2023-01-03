@@ -2,7 +2,7 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram import types, Dispatcher
 from config import bot, dp
 from database.bot_db import sql_command_random
-from parser.news import parser
+from parser.news import ParserNews
 
 
 # @dp.message_handler(commands=['start'])
@@ -55,7 +55,7 @@ async def get_random_user(message: types.Message):
 
 
 async def get_news(message: types.Message):
-    news = parser()
+    news = ParserNews.parser()
     for i in news:
         await message.answer(
             f"{i['link']}\n\n"
